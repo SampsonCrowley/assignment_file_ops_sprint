@@ -23,8 +23,9 @@ class DictionaryUI
   end
 
   def save_results(matches)
+    puts "\n"
     display_results(matches)
-    puts "Do you want to save your results? y/n"
+    puts "\nDo you want to save your results? y/n"
     listen
   end
 

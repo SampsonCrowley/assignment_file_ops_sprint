@@ -1,6 +1,9 @@
+#!/usr/bin/env ruby
+
 require_relative 'dictionary_loader'
 require_relative 'dictionary_searcher'
 require_relative 'dictionary_ui'
+require_relative 'results_saver'
 
 class Dictionary
   attr_reader :words, :searcher, :ui, :writer
@@ -18,7 +21,7 @@ class Dictionary
       input = ui.listen
       break if quit?(input)
       output = select_task(input)
-      save_to_file(output) if save?(ui.save_results(output))
+      save_to_file(output, input) if save?(ui.save_results(output))
     end
   end
 
@@ -37,9 +40,9 @@ class Dictionary
     input == "y"
   end
 
-  def save_to_file(results)
-    writer.save(results)
+  def save_to_file(results, keyword)
+    writer.save(results, keyword)
   end
-end 
+end
 
-Dictionary.new("dict_simple.txt").logic_loop
+Dictionary.new.logic_loop
