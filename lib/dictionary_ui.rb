@@ -11,7 +11,7 @@ class DictionaryUI
     puts "'q!' to quit"
   end
 
-  def listen 
+  def listen
     gets.strip.downcase
   end
 

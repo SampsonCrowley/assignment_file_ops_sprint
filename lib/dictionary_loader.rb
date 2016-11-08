@@ -6,7 +6,6 @@ class DictionaryLoader
     load_dict(file_path) if valid_input?(file_path)
   end
 
-  private
   def self.valid_input?(file_path)
     unless file_path.is_a?(Array)
       raise ArgumentError unless File.exist?(file_path)
